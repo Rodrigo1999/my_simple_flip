@@ -68,3 +68,13 @@ ou
 
 ```$(this).flip('front');``` Para voltar ao front
 
+## HTML
+
+A classe ```.flip-container``` é o container de um flip, todo elemento em que se deseja ter uma rotação deve estar englobado por essa classe.
+
+A classe ```.flipper``` é o elemento que vai rotacionar.
+
+use ```flip-front e flip-back``` dentro de ```.flipper```
+
+
+
