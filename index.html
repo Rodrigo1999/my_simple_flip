@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="http://propeller.in/components/card/css/card.css">
+  
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <style>
+    .flip-container{
+      -webkit-perspective: 1000px;
+       perspective: 1000px;
+      -webkit-transform-style: preserve-3d;
+       transform-style: preserve-3d;
+    }
+    .flipper{
+      -webkit-transition: 0.7s;
+      -o-transition: 0.7s;
+      transition: 0.7s;
+      -webkit-transform-style: preserve-3d;
+       transform-style: preserve-3d;
+      position:relative;    
+    }
+  
+    .flip-front, .flip-back{
+      -webkit-backface-visibility: hidden;
+       backface-visibility: hidden;
+      
+    }
+   
+    .flip-container-active .flipper{ 
+      -webkit-transform: rotateY(180deg); 
+       transform: rotateY(180deg);
+    }
+    
+    .flip-back {
+       padding:20px;
+       position:absolute;
+       top:0;
+       right:0;
+       -webkit-transform: rotateY(180deg);
+       transform: rotateY(180deg);
+    }
+  </style>
+  <script>
+    $(function(){
+        $.fn.extend({
+          flip: function (action) {
+            return this.each(function () {
+              if(action=='back'){
+                $(this).addClass('flip-container-active');
+              }else{ 
+                $(this).removeClass('flip-container-active');
+              }
+            });
+          }
+        });
+      $('.flip-container').hover(function(){
+        $(this).flip('back');
+      });
+      $('.flip-container').mouseleave(function(){
+        $(this).flip('front');
+      });
+    })
+  </script>
+</head>
+<body>
+    <div class="container py-3">
+      <div class="flip-container">
+        <div class="pmd-card pmd-card-default pmd-z-depth flipper">
+          <div class="card-body">
+            <div class="flip-front">
+              aqui front<br>
+              aqui front <br>
+              
+              <form action="#">
+                <div class="form-group">
+                  <input type="text" class="form-control">
+                </div>
+              </form>
+            </div>
+            <div class="flip-back">
+              aqui back<br>
+              aqui back
+            </div>
+          </div>
+        </div>
+       </div>
+    </div>
+</body>
+</html>

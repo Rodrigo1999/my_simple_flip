@@ -1,6 +1,8 @@
 # Flip - rotacione objetos
 
 ## css
+
+O css já vem formatado com os prefixos de renderizações necessários
 ```
     .flip-container{
       -webkit-perspective: 1000px;
@@ -60,9 +62,9 @@
 ```
 acione 
 
-$(this).flip('back'); - Para mostrar o back
+```$(this).flip('back');``` Para mostrar o back
 
 ou
 
-$(this).flip('front'); - Para voltar ao front
+```$(this).flip('front');``` Para voltar ao front
 
